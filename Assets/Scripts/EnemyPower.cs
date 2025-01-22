@@ -6,6 +6,8 @@ public class EnemyPower : MonoBehaviour
 
 
     public int power = 4;
+
+    public int health = 10;
     
     void Start()
     {
@@ -15,6 +17,7 @@ public class EnemyPower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (health <= 0)
+            Destroy(gameObject);
     }
 }
