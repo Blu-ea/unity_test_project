@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -34,7 +32,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             health -= collision.gameObject.GetComponent<EnemyPower>().power;
             StartCoroutine(IFrame());
