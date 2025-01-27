@@ -517,13 +517,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 654a273d9f01e314c826def15817b14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoEnemySpawn: 0
   allEnemy:
     _serializedList:
     - Key: {fileID: 1310207279825485281, guid: a5b65016087764a4493ae058305a7d4a, type: 3}
       Value: 3
     - Key: {fileID: 1310207279825485281, guid: 2f6522c23b6a33341b6d407c9027dbab, type: 3}
       Value: 12
-  _distance: 38
+  _distance: 7
 --- !u!1 &1817611254
 GameObject:
   m_ObjectHideFlags: 0

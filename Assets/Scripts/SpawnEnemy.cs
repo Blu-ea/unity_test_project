@@ -6,8 +6,8 @@ using Random = UnityEngine.Random;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    
-    // public GameObject[] enemyType;
+
+    public bool DoEnemySpawn = true;
 
     [FormerlySerializedAs("spawnTime")] [SerializedDictionary("Enemy Type", "Spawn Timer +- 3s")]
     public SerializedDictionary<GameObject, float> allEnemy;
@@ -29,16 +29,10 @@ public class SpawnEnemy : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, 1);
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
-        
+        if (!DoEnemySpawn) return;
         foreach (var enemy in allEnemy)
         {
             StartCoroutine(SpawnEnemyCoroutine(enemy.Key, enemy.Value));

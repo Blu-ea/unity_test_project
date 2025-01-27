@@ -16,6 +16,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     
     void Start()
     {
+        Physics2D.IgnoreLayerCollision(6, 8, true); // Ignore the Bullet Collision
         _wand = GameObject.Find("Wand");
         rb2d = GetComponent<Rigidbody2D>();
     }
@@ -23,9 +24,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _xSpeed = Input.GetAxis("Horizontal") * movSpeed;
-        _ySpeed = Input.GetAxis("Vertical") * movSpeed;
-        rb2d.linearVelocity = new Vector2(_xSpeed, _ySpeed);
+        Physics2D.IgnoreLayerCollision(6, 8, true); // Ignore the Bullet Collision
+        _xSpeed = Input.GetAxis("Horizontal");
+        _ySpeed = Input.GetAxis("Vertical");
+        rb2d.linearVelocity = new Vector2(_xSpeed, _ySpeed) * movSpeed;
 
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = mousePos - transform.position;

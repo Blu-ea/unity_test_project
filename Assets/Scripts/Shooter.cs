@@ -19,14 +19,8 @@ public class Shooter : MonoBehaviour
         if (Input.GetMouseButton((int) MouseButton.Left))
         {
             var front = transform.forward;
-            Instantiate(bullet, transform.position + (transform.up * 2), Quaternion.identity);
+            Instantiate(bullet, transform.position + (transform.up * 2), transform.rotation);
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        
-        Gizmos.DrawWireSphere(transform.position + (transform.up * 2), 0.5f);
-    }
 }

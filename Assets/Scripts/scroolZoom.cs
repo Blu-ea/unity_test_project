@@ -28,9 +28,4 @@ public class scroolZoom : MonoBehaviour
         _mainCamera.orthographicSize = _zoom;
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, _zoom);
-    }
 }
