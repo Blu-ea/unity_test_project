@@ -8,6 +8,9 @@ After a GameJam produce by 42 Lyon (FT_GameJam#1) i'm trying to create an other 
 
 This has no mean to be a polished game, and may go in every direction
 
+Some idea:
+ - a player that put "mines" down, (Bullet that does no move)
+
 ---
 
 All textures are made by me

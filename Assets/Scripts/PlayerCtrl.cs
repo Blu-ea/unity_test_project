@@ -5,7 +5,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
     public float movSpeed = 1f;
     public int health = 100; 
-    public float iTime = 3;
+
+    [Range(0,1)]
+    public float iTime = 1;
 
     private float _xSpeed, _ySpeed;
     Rigidbody2D rb2d;
