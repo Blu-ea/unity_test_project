@@ -10,8 +10,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
     private float _xSpeed, _ySpeed;
     Rigidbody2D rb2d;
     
+    private GameObject _wand;
+    
     void Start()
     {
+        _wand = GameObject.Find("Wand");
         rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -21,8 +24,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
         _xSpeed = Input.GetAxis("Horizontal") * movSpeed;
         _ySpeed = Input.GetAxis("Vertical") * movSpeed;
         rb2d.linearVelocity = new Vector2(_xSpeed, _ySpeed);
+
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mousePos - transform.position;
+        float rotZ = Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg;
+        _wand.transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
     }
 
+    
     IEnumerator IFrame()
     {
         Physics2D.IgnoreLayerCollision(6, 7, true);
@@ -44,5 +53,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
         Gizmos.color = Color.blue;
         if (Physics2D.GetIgnoreLayerCollision(6, 7))
             Gizmos.DrawWireSphere(transform.position, 1);
+
+        Gizmos.color = Color.cyan;
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Gizmos.DrawWireSphere(mousePos, 1);
     }
 }
