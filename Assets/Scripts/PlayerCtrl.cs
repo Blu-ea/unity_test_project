@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -50,6 +51,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
             health -= collision.gameObject.GetComponent<EnemyInteraction>().power;
             StartCoroutine(IFrame());
         }
+    }
+
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 20), "Health: " + health);
     }
 
     private void OnDrawGizmos()
