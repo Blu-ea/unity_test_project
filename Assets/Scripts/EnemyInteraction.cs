@@ -24,8 +24,6 @@ public class EnemyInteraction : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("ON COLLISION ENTER");
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Debug.Log("BULLET");

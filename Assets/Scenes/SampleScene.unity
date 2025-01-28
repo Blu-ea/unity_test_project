@@ -770,6 +770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3312435216479012942, guid: 1b01969462ccf8040ba27bbc5ebb8fe0, type: 3}
+  shootSpeed: 3
 --- !u!1 &1944271501
 GameObject:
   m_ObjectHideFlags: 0

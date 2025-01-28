@@ -140,4 +140,4 @@ MonoBehaviour:
   bulletSpeed: 15
   bulletLifeTime: 30
   maxHitCount: 1
-  damages: 1
+  damages: 3
