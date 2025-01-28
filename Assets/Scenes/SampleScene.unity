@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 654a273d9f01e314c826def15817b14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoEnemySpawn: 0
+  DoEnemySpawn: 1
   allEnemy:
     _serializedList:
     - Key: {fileID: 1310207279825485281, guid: a5b65016087764a4493ae058305a7d4a, type: 3}

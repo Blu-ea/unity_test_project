@@ -47,7 +47,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            health -= collision.gameObject.GetComponent<EnemyPower>().power;
+            health -= collision.gameObject.GetComponent<EnemyInteraction>().power;
             StartCoroutine(IFrame());
         }
     }
