@@ -26,7 +26,6 @@ public class EnemyInteraction : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Debug.Log("BULLET");
             var bullet = collision.gameObject.GetComponent<BulletBehaviour>();
             bullet.Hit();
             takeDamage(bullet.damages);
