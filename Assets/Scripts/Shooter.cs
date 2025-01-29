@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class Shooter : MonoBehaviour
 {

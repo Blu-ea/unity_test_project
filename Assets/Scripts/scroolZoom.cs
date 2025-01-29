@@ -1,7 +1,4 @@
-using Unity.Mathematics.Geometry;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class scroolZoom : MonoBehaviour
 {
