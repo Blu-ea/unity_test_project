@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     void Start()
     {
         Physics2D.IgnoreLayerCollision(6, 8, true); // Ignore the Bullet Collision
+        Physics2D.IgnoreLayerCollision(6, 7, false); // Ignore the Bullet Collision
+
         _wand = GameObject.Find("Wand");
         rb2d = GetComponent<Rigidbody2D>();
     }
@@ -48,23 +51,15 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             health -= collision.gameObject.GetComponent<EnemyInteraction>().power;
-            StartCoroutine(IFrame());
+            if (health <= 0)
+                SceneManager.LoadScene("TitleScreen");
+            else
+                StartCoroutine(IFrame());
         }
     }
 
     private void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 100, 20), "Health: " + health);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        if (Physics2D.GetIgnoreLayerCollision(6, 7))
-            Gizmos.DrawWireSphere(transform.position, 1);
-
-        Gizmos.color = Color.cyan;
-        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Gizmos.DrawWireSphere(mousePos, 1);
     }
 }
