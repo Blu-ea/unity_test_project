@@ -11,7 +11,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float iTime = 1;
 
     private float _xSpeed, _ySpeed;
-    Rigidbody2D rb2d;
+    Rigidbody2D _rb2d;
     
     private GameObject _wand;
     
@@ -21,7 +21,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         Physics2D.IgnoreLayerCollision(6, 7, false); // Ignore the Bullet Collision
 
         _wand = GameObject.Find("Wand");
-        rb2d = GetComponent<Rigidbody2D>();
+        _rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -30,14 +30,15 @@ public class NewMonoBehaviourScript : MonoBehaviour
         Physics2D.IgnoreLayerCollision(6, 8, true); // Ignore the Bullet Collision
         _xSpeed = Input.GetAxis("Horizontal");
         _ySpeed = Input.GetAxis("Vertical");
-        rb2d.linearVelocity = new Vector2(_xSpeed, _ySpeed) * movSpeed;
-
-        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePos - transform.position;
-        float rotZ = Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg;
-        _wand.transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
+        _rb2d.linearVelocity = new Vector2(_xSpeed, _ySpeed) * movSpeed;
+        if (Time.timeScale != 0)
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 direction = mousePos - transform.position;
+            float rotZ = Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg;
+            _wand.transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
+        }
     }
-
     
     IEnumerator IFrame()
     {
