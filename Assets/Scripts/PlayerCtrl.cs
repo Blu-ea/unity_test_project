@@ -11,7 +11,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float iTime = 1;
 
     private float _xSpeed, _ySpeed;
-    Rigidbody2D _rb2d;
+    private Rigidbody2D _rb2d;
     
     private GameObject _wand;
     
