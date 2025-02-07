@@ -7,11 +7,14 @@ public class EnemyInteraction : MonoBehaviour
     public int health = 10;
     
     private GameObject _player;
+    private Rigidbody2D _rb2d;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
+        
+        _rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -19,6 +22,7 @@ public class EnemyInteraction : MonoBehaviour
     {
         transform.LookAt(_player.transform.position);
         transform.Translate(Vector3.forward * (speed * Time.deltaTime));
+        _rb2d.linearVelocity = Vector2.zero;
         transform.rotation = new Quaternion(0, 0, transform.rotation.z, 1);
     }
 
